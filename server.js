@@ -34,7 +34,7 @@ app.get("/home", (req, res) => {
   res.render("home");
 });
 
-// Socket.IO integration
+// Socket.IO Integration
 
 const server = require("http").createServer(app);
 const socketIO = require("socket.io");
