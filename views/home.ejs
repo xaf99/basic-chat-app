@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Welcome To Socket</h1>
+    <input type="text" class="message" />
+    <button onclick="sendMessage()">Send Message</button>
+    <h2></h2>
+    <script>
+      const socket = io("http://localhost:4444");
+
+      socket.on("connection");
+
+      socket.on("message", (msg) => {
+        console.log(msg);
+        document.querySelector("h2").innerHTML = msg;
+      });
+      const sendMessage = () => {
+        const input = document.querySelector(".message");
+        const message = input.value;
+        socket.emit("message", message);
+      };
+    </script>
+  </body>
+</html>
